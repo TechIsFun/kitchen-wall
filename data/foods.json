@@ -1,0 +1,86 @@
+{
+  "Frutta": [
+    { "nome": "Mele", "emoji": "🍎" },
+    { "nome": "Banane", "emoji": "🍌" },
+    { "nome": "Arance", "emoji": "🍊" },
+    { "nome": "Fragole", "emoji": "🍓" },
+    { "nome": "Pere", "emoji": "🍐" },
+    { "nome": "Uva", "emoji": "🍇" },
+    { "nome": "Limoni", "emoji": "🍋" },
+    { "nome": "Kiwi", "emoji": "🥝" },
+    { "nome": "Pesche", "emoji": "🍑" },
+    { "nome": "Ananas", "emoji": "🍍" }
+  ],
+  "Verdura": [
+    { "nome": "Pomodori", "emoji": "🍅" },
+    { "nome": "Zucchine", "emoji": "🥒" },
+    { "nome": "Carote", "emoji": "🥕" },
+    { "nome": "Patate", "emoji": "🥔" },
+    { "nome": "Insalata", "emoji": "🥬" },
+    { "nome": "Cipolle", "emoji": "🧅" },
+    { "nome": "Aglio", "emoji": "🧄" },
+    { "nome": "Peperoni", "emoji": "🫑" },
+    { "nome": "Zucca", "emoji": "🎃" },
+    { "nome": "Piselli", "emoji": "🟢" },
+    { "nome": "Melanzane", "emoji": "🍆" },
+    { "nome": "Broccoli", "emoji": "🥦" }
+  ],
+  "Latticini": [
+    { "nome": "Latte", "emoji": "🥛" },
+    { "nome": "Yogurt", "emoji": "🥣" },
+    { "nome": "Mozzarella", "emoji": "🧀" },
+    { "nome": "Parmigiano grattugiato", "emoji": "🧀" },
+    { "nome": "Burro", "emoji": "🧈" },
+    { "nome": "Besciamella", "emoji": "🥛" },
+    { "nome": "Uova", "emoji": "🥚" },
+    { "nome": "Ricotta", "emoji": "🧀" }
+  ],
+  "Carne e pesce": [
+    { "nome": "Petto di pollo", "emoji": "🍗" },
+    { "nome": "Hamburger di manzo", "emoji": "🍔" },
+    { "nome": "Arrosto di vitello", "emoji": "🥩" },
+    { "nome": "Prosciutto cotto", "emoji": "🍖" },
+    { "nome": "Ragù di carne", "emoji": "🍖" },
+    { "nome": "Filetti di pesce bianco", "emoji": "🐟" },
+    { "nome": "Macinato di manzo", "emoji": "🥩" },
+    { "nome": "Scaloppine di vitello", "emoji": "🥩" }
+  ],
+  "Dispensa": [
+    { "nome": "Pasta", "emoji": "🍝" },
+    { "nome": "Pasta corta", "emoji": "🍝" },
+    { "nome": "Riso", "emoji": "🍚" },
+    { "nome": "Farina", "emoji": "🌾" },
+    { "nome": "Pane", "emoji": "🍞" },
+    { "nome": "Sfoglie di lasagna", "emoji": "🍝" },
+    { "nome": "Pangrattato", "emoji": "🍞" },
+    { "nome": "Passata di pomodoro", "emoji": "🥫" },
+    { "nome": "Pesto alla genovese", "emoji": "🥫" },
+    { "nome": "Fagioli in scatola", "emoji": "🥫" },
+    { "nome": "Olio d'oliva", "emoji": "🫒" },
+    { "nome": "Olio di semi", "emoji": "🫙" },
+    { "nome": "Sale", "emoji": "🧂" },
+    { "nome": "Miele", "emoji": "🍯" },
+    { "nome": "Marmellata", "emoji": "🍯" },
+    { "nome": "Lievito di birra", "emoji": "🍞" },
+    { "nome": "Lievito per dolci", "emoji": "🧁" },
+    { "nome": "Patatine surgelate", "emoji": "🍟" }
+  ],
+  "Colazione": [
+    { "nome": "Biscotti secchi", "emoji": "🍪" },
+    { "nome": "Cereali", "emoji": "🥣" },
+    { "nome": "Fette biscottate", "emoji": "🍞" },
+    { "nome": "Nutella", "emoji": "🍫" }
+  ],
+  "Bevande": [
+    { "nome": "Acqua", "emoji": "💧" },
+    { "nome": "Succo d'arancia", "emoji": "🧃" },
+    { "nome": "Vino bianco", "emoji": "🍷" },
+    { "nome": "Tè", "emoji": "🍵" }
+  ],
+  "Casa": [
+    { "nome": "Carta da cucina", "emoji": "🧻" },
+    { "nome": "Detersivo piatti", "emoji": "🧴" },
+    { "nome": "Sacchetti freezer", "emoji": "🗑️" },
+    { "nome": "Spugne", "emoji": "🧽" }
+  ]
+}

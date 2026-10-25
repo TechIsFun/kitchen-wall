@@ -1,0 +1,599 @@
+/* ============================================================
+   Kitchen Wall — tema scuro, pulito e contemporaneo.
+   Antracite quasi nero, superfici piatte con bordi sottili
+   (niente ombre morbide/angoli uniformi da "SaaS kit"), un
+   solo accento caldo e vivo (paprika/mango) per azioni e punti
+   chiave. Font di sistema, nessun font esterno.
+   ============================================================ */
+
+:root {
+  --sfondo: #121417;
+  --superficie: #1C2024;
+  --superficie-alta: #262B31;
+  --bordo: #33383F;
+
+  --testo: #F4F2EE;
+  --testo-tenue: #A8AEB6;
+
+  --accento: #FF7A45;
+  --accento-bottone: #C2461F;
+  --verde-ok: #3FB87F;
+  --rosso-elimina: #E2493B;
+
+  --font-ui: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  font-family: var(--font-ui);
+  background: var(--sfondo);
+  color: var(--testo);
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+input {
+  font-family: inherit;
+}
+
+button:focus,
+input:focus,
+[tabindex]:focus {
+  outline: 3px solid var(--accento);
+  outline-offset: 2px;
+}
+
+/* ============== TOPBAR ============== */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--superficie);
+  color: var(--testo);
+  padding: 16px 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-bottom: 1px solid var(--bordo);
+}
+
+.brand {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--sfondo);
+  border: 1px solid var(--bordo);
+  border-radius: 14px;
+  padding: 5px;
+}
+
+.tab-btn {
+  background: transparent;
+  color: var(--testo-tenue);
+  font-family: var(--font-ui);
+  font-size: 18px;
+  font-weight: 700;
+  padding: 11px 20px;
+  border-radius: 10px;
+  min-height: 48px;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tab-btn.active {
+  background: var(--accento-bottone);
+  color: #FFFFFF;
+}
+
+/* ============== LAYOUT PRINCIPALE ============== */
+
+main#app {
+  padding: 28px 24px 60px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+  margin-bottom: 22px;
+  color: var(--testo);
+}
+
+h2 {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--testo-tenue);
+  margin-bottom: 12px;
+}
+
+/* ============== VISTA OGGI ============== */
+
+.oggi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.pasto-card {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: 18px;
+  padding: 26px 22px;
+  text-align: left;
+  min-height: 48px;
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.pasto-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--testo-tenue);
+  margin-bottom: 18px;
+}
+
+.pasto-label::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accento);
+}
+
+.pasto-nome {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--testo);
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.pasto-nome:active {
+  color: var(--accento);
+}
+
+.chip-alt {
+  display: inline-block;
+  margin-top: 14px;
+  background: var(--superficie-alta);
+  color: var(--testo-tenue);
+  border: 1px solid var(--bordo);
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+  min-height: 48px;
+  text-align: left;
+}
+
+.chip-alt:active {
+  border-color: var(--accento);
+  color: var(--accento);
+}
+
+.app-pronto .pasto-card {
+  animation: entra 0.45s ease-out forwards;
+}
+
+.app-pronto .pasto-card:nth-child(1) { animation-delay: 0s; }
+.app-pronto .pasto-card:nth-child(2) { animation-delay: 0.1s; }
+.app-pronto .pasto-card:nth-child(3) { animation-delay: 0.2s; }
+
+@keyframes entra {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pasto-card { opacity: 1; transform: none; animation: none !important; }
+}
+
+/* ============== VISTA SETTIMANA ============== */
+
+.settimana-grid {
+  display: grid;
+  grid-template-columns: 118px 1fr 1fr 1fr;
+  gap: 2px;
+  background: var(--bordo);
+  border: 1px solid var(--bordo);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.pasto-header {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--testo-tenue);
+  background: var(--superficie);
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.cella-giorno {
+  background: var(--superficie);
+  color: var(--testo);
+  padding: 10px;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.cella-giorno.oggi {
+  background: var(--accento-bottone);
+  color: #FFFFFF;
+}
+
+.cella-giorno.oggi::after {
+  content: "oggi";
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 2px;
+  color: rgba(255,255,255,0.8);
+}
+
+.cella-piatto {
+  background: var(--superficie);
+  padding: 10px;
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cella-piatto.oggi-col {
+  background: var(--superficie-alta);
+  box-shadow: inset 3px 0 0 var(--accento);
+}
+
+.cella-piatto-main {
+  font-size: 15px;
+  text-align: center;
+  color: var(--testo);
+  padding: 4px;
+}
+
+.cella-piatto-alt {
+  font-size: 12px;
+  text-align: center;
+  color: var(--testo-tenue);
+  padding: 2px 4px;
+}
+
+.cella-piatto-alt:active,
+.cella-piatto-main:active {
+  color: var(--accento);
+}
+
+/* ============== RICETTA ============== */
+
+.btn-indietro {
+  background: var(--superficie-alta);
+  color: var(--testo);
+  border: 1px solid var(--bordo);
+  font-size: 17px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  min-height: 48px;
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+
+.ricetta-info {
+  display: flex;
+  gap: 20px;
+  font-family: var(--font-ui);
+  font-size: 18px;
+  margin-bottom: 24px;
+  font-weight: 700;
+  color: var(--accento);
+}
+
+.ricetta-body {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 20px;
+}
+
+.ricetta-ingredienti {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: 16px;
+  padding: 22px;
+  align-self: start;
+}
+
+.ricetta-ingredienti ul, .ricetta-passi ol {
+  list-style: none;
+  padding: 0;
+}
+
+.ricetta-ingredienti li {
+  border-bottom: 1px solid var(--bordo);
+  padding: 12px 2px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.ricetta-ingredienti li:last-child {
+  border-bottom: none;
+}
+
+.ricetta-ingredienti li span:last-child {
+  color: var(--testo-tenue);
+  font-weight: 600;
+}
+
+.ricetta-passi ol {
+  counter-reset: passo;
+}
+
+.passo-item {
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: 16px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  font-size: 19px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.passo-numero {
+  background: var(--accento-bottone);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 18px;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.passo-testo {
+  flex: 1;
+  line-height: 1.45;
+}
+
+.btn-timer-passo {
+  background: var(--superficie-alta);
+  color: var(--testo);
+  border: 1px solid var(--accento);
+  font-size: 15px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  min-height: 48px;
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+/* ============== BOTTONI GENERICI GRANDI ============== */
+
+.btn-grande {
+  font-size: 19px;
+  padding: 14px 22px;
+  border-radius: 12px;
+  min-height: 48px;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.btn-arancio { background: var(--accento-bottone); }
+.btn-verde { background: var(--verde-ok); color: #0B1F15; }
+.btn-rosso { background: var(--rosso-elimina); }
+
+/* ============== SPESA ============== */
+
+.spesa-input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+#input-nuovo-articolo {
+  flex: 1;
+  font-size: 19px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--bordo);
+  background: var(--superficie);
+  color: var(--testo);
+  min-height: 48px;
+  min-width: 200px;
+}
+
+#input-nuovo-articolo::placeholder {
+  color: var(--testo-tenue);
+}
+
+.spesa-vuoto {
+  color: var(--testo-tenue);
+  font-size: 17px;
+  margin-bottom: 20px;
+  padding: 4px 2px;
+}
+
+.lista-spesa {
+  list-style: none;
+  margin-bottom: 18px;
+  background: var(--superficie);
+  border: 1px solid var(--bordo);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.lista-spesa li {
+  padding: 15px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 21px;
+  min-height: 48px;
+  border-bottom: 1px solid var(--bordo);
+}
+
+.lista-spesa li:last-child {
+  border-bottom: none;
+}
+
+.lista-spesa li:active {
+  background: var(--superficie-alta);
+}
+
+.articolo-emoji {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.articolo-testo {
+  flex: 1;
+  color: var(--testo);
+}
+
+.articolo-comprato {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--verde-ok);
+  flex-shrink: 0;
+}
+
+/* ============== CATALOGO ALIMENTI ============== */
+
+.catalogo-spesa {
+  margin-top: 6px;
+}
+
+.catalogo-categoria-titolo {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--testo-tenue);
+  margin: 18px 0 10px 0;
+}
+
+.catalogo-categoria-titolo:first-child {
+  margin-top: 0;
+}
+
+.catalogo-categoria-righe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.chip-alimento {
+  background: var(--superficie);
+  color: var(--testo);
+  border: 1px solid var(--bordo);
+  font-size: 16px;
+  font-weight: 600;
+  padding: 11px 16px;
+  border-radius: 12px;
+  min-height: 48px;
+}
+
+.chip-alimento.attivo {
+  background: var(--accento-bottone);
+  border-color: var(--accento-bottone);
+  color: #FFFFFF;
+}
+
+/* ============== TIMER OVERLAY ============== */
+
+.timer-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(5,6,7,0.82);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.timer-overlay.visible {
+  display: flex;
+}
+
+.timer-box {
+  background: var(--superficie-alta);
+  border: 1px solid var(--bordo);
+  border-radius: 20px;
+  padding: 34px;
+  text-align: center;
+  min-width: 280px;
+}
+
+#timer-label {
+  font-size: 19px;
+  margin-bottom: 10px;
+  color: var(--testo-tenue);
+  font-weight: 700;
+}
+
+#timer-display {
+  font-size: 62px;
+  font-weight: 800;
+  margin-bottom: 22px;
+  color: var(--accento);
+  letter-spacing: 1px;
+}
+
+.timer-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .oggi-grid { grid-template-columns: 1fr; }
+  .ricetta-body { grid-template-columns: 1fr; }
+  .settimana-grid { grid-template-columns: 86px 1fr 1fr 1fr; font-size: 14px; }
+}

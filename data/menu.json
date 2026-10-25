@@ -1,0 +1,37 @@
+{
+  "lunedi": {
+    "colazione": { "main": "Latte e biscotti", "alt": "Frullato di banana e latte" },
+    "pranzo": { "main": "Pasta al pomodoro", "alt": "Riso con zucchine" },
+    "cena": { "main": "Petto di pollo con patate al forno", "alt": "Frittata con insalata" }
+  },
+  "martedi": {
+    "colazione": { "main": "Yogurt con cereali", "alt": "Pane e marmellata" },
+    "pranzo": { "main": "Riso con zucchine", "alt": "Insalata di riso" },
+    "cena": { "main": "Frittata con insalata", "alt": "Pesce al forno con piselli" }
+  },
+  "mercoledi": {
+    "colazione": { "main": "Pane e marmellata", "alt": "Pancake con miele" },
+    "pranzo": { "main": "Pasta al pesto", "alt": "Pasta al pomodoro" },
+    "cena": { "main": "Hamburger con purè di patate", "alt": "Polpette al sugo con pane" }
+  },
+  "giovedi": {
+    "colazione": { "main": "Latte e biscotti", "alt": "Toast al prosciutto e formaggio" },
+    "pranzo": { "main": "Minestrone di verdure", "alt": "Pasta al forno" },
+    "cena": { "main": "Pesce al forno con piselli", "alt": "Spiedini di pollo e verdure" }
+  },
+  "venerdi": {
+    "colazione": { "main": "Yogurt con cereali", "alt": "Pane e marmellata" },
+    "pranzo": { "main": "Pasta al forno", "alt": "Riso con zucchine" },
+    "cena": { "main": "Pizza margherita fatta in casa", "alt": "Involtini di prosciutto e formaggio" }
+  },
+  "sabato": {
+    "colazione": { "main": "Pane e marmellata", "alt": "Latte e biscotti" },
+    "pranzo": { "main": "Cotoletta di pollo con patatine", "alt": "Vellutata di zucca" },
+    "cena": { "main": "Lasagne alla bolognese", "alt": "Pasta al forno" }
+  },
+  "domenica": {
+    "colazione": { "main": "Pancake con miele", "alt": "Yogurt con cereali" },
+    "pranzo": { "main": "Arrosto di vitello con carote", "alt": "Scaloppine al limone con piselli" },
+    "cena": { "main": "Passato di verdure con crostini", "alt": "Minestrone di verdure" }
+  }
+}

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#121417"/>
+  <circle cx="256" cy="256" r="168" fill="none" stroke="#FF7A45" stroke-width="20"/>
+  <text x="256" y="320" font-size="300" text-anchor="middle" font-family="Apple Color Emoji, Noto Color Emoji, sans-serif">🍳</text>
+</svg>

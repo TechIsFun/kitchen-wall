@@ -1,0 +1,438 @@
+{
+  "Latte e biscotti": {
+    "tempo": "5 min",
+    "porzioni": 2,
+    "ingredienti": [
+      { "nome": "Latte", "quantita": "400 ml" },
+      { "nome": "Biscotti secchi", "quantita": "8 pezzi" }
+    ],
+    "passi": [
+      { "testo": "Scalda il latte in un pentolino a fuoco basso." },
+      { "testo": "Versa il latte in due tazze." },
+      { "testo": "Servi con i biscotti." }
+    ]
+  },
+  "Pasta al pomodoro": {
+    "tempo": "20 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Pasta", "quantita": "320 g" },
+      { "nome": "Passata di pomodoro", "quantita": "400 g" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Aglio", "quantita": "1 spicchio" },
+      { "nome": "Basilico fresco", "quantita": "qualche foglia" },
+      { "nome": "Sale", "quantita": "q.b." },
+      { "nome": "Parmigiano grattugiato", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Metti a bollire l'acqua salata per la pasta.", "minuti": 10 },
+      { "testo": "In una padella scalda l'olio con l'aglio." },
+      { "testo": "Versa la passata e cuoci a fuoco basso.", "minuti": 10 },
+      { "testo": "Cala la pasta e scola al dente.", "minuti": 9 },
+      { "testo": "Unisci la pasta al sugo, aggiungi basilico e servi con parmigiano." }
+    ]
+  },
+  "Petto di pollo con patate al forno": {
+    "tempo": "40 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Petto di pollo", "quantita": "4 fette" },
+      { "nome": "Patate", "quantita": "600 g" },
+      { "nome": "Olio d'oliva", "quantita": "3 cucchiai" },
+      { "nome": "Rosmarino", "quantita": "1 rametto" },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Accendi il forno a 200 gradi." },
+      { "testo": "Taglia le patate a tocchetti e condiscile con olio, sale e rosmarino." },
+      { "testo": "Metti patate e pollo in una teglia e infornare.", "minuti": 35 },
+      { "testo": "Servi caldo." }
+    ]
+  },
+  "Yogurt con cereali": {
+    "tempo": "5 min",
+    "porzioni": 2,
+    "ingredienti": [
+      { "nome": "Yogurt bianco", "quantita": "250 g" },
+      { "nome": "Cereali", "quantita": "60 g" },
+      { "nome": "Miele", "quantita": "1 cucchiaio" }
+    ],
+    "passi": [
+      { "testo": "Versa lo yogurt in due ciotole." },
+      { "testo": "Aggiungi i cereali e un filo di miele." }
+    ]
+  },
+  "Riso con zucchine": {
+    "tempo": "25 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Riso", "quantita": "320 g" },
+      { "nome": "Zucchine", "quantita": "3" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Cipolla", "quantita": "1/2" },
+      { "nome": "Sale", "quantita": "q.b." },
+      { "nome": "Parmigiano grattugiato", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Taglia le zucchine a rondelle e la cipolla fine." },
+      { "testo": "Rosola la cipolla nell'olio, poi aggiungi le zucchine.", "minuti": 8 },
+      { "testo": "Cuoci il riso in acqua salata e scola.", "minuti": 15 },
+      { "testo": "Unisci il riso alle zucchine, mescola e servi con parmigiano." }
+    ]
+  },
+  "Frittata con insalata": {
+    "tempo": "15 min",
+    "porzioni": 3,
+    "ingredienti": [
+      { "nome": "Uova", "quantita": "5" },
+      { "nome": "Insalata", "quantita": "1 cespo" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Sale", "quantita": "q.b." },
+      { "nome": "Parmigiano grattugiato", "quantita": "2 cucchiai" }
+    ],
+    "passi": [
+      { "testo": "Sbatti le uova con sale e parmigiano." },
+      { "testo": "Versa in padella calda con un po' d'olio." },
+      { "testo": "Cuoci la frittata a fuoco medio girandola a metà cottura.", "minuti": 8 },
+      { "testo": "Lava e condisci l'insalata, servi insieme." }
+    ]
+  },
+  "Pane e marmellata": {
+    "tempo": "5 min",
+    "porzioni": 2,
+    "ingredienti": [
+      { "nome": "Pane", "quantita": "4 fette" },
+      { "nome": "Marmellata", "quantita": "4 cucchiai" }
+    ],
+    "passi": [
+      { "testo": "Spalma la marmellata sulle fette di pane." },
+      { "testo": "Servi subito." }
+    ]
+  },
+  "Pasta al pesto": {
+    "tempo": "15 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Pasta", "quantita": "320 g" },
+      { "nome": "Pesto alla genovese", "quantita": "150 g" },
+      { "nome": "Parmigiano grattugiato", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Metti a bollire l'acqua salata.", "minuti": 10 },
+      { "testo": "Cuoci la pasta al dente e scola conservando un po' d'acqua.", "minuti": 9 },
+      { "testo": "Condisci con il pesto allungato con l'acqua di cottura e servi." }
+    ]
+  },
+  "Hamburger con purè di patate": {
+    "tempo": "30 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Hamburger di manzo", "quantita": "4" },
+      { "nome": "Patate", "quantita": "600 g" },
+      { "nome": "Latte", "quantita": "100 ml" },
+      { "nome": "Burro", "quantita": "30 g" },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Lessa le patate in acqua salata finché morbide.", "minuti": 20 },
+      { "testo": "Schiaccia le patate e unisci latte e burro per il purè." },
+      { "testo": "Cuoci gli hamburger in padella.", "minuti": 8 },
+      { "testo": "Servi hamburger e purè insieme." }
+    ]
+  },
+  "Minestrone di verdure": {
+    "tempo": "40 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Carote", "quantita": "2" },
+      { "nome": "Patate", "quantita": "2" },
+      { "nome": "Zucchine", "quantita": "2" },
+      { "nome": "Fagioli in scatola", "quantita": "1 lattina" },
+      { "nome": "Pomodori", "quantita": "2" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Taglia tutte le verdure a cubetti." },
+      { "testo": "Soffriggi leggermente nell'olio." },
+      { "testo": "Aggiungi acqua a coprire e cuoci a fuoco medio.", "minuti": 30 },
+      { "testo": "Aggiusta di sale e servi caldo." }
+    ]
+  },
+  "Pesce al forno con piselli": {
+    "tempo": "30 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Filetti di pesce bianco", "quantita": "4" },
+      { "nome": "Piselli", "quantita": "300 g" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Limone", "quantita": "1" },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Accendi il forno a 190 gradi." },
+      { "testo": "Metti i filetti in teglia con olio, sale e limone." },
+      { "testo": "Cuoci in forno.", "minuti": 18 },
+      { "testo": "Scalda i piselli in un pentolino e servi insieme al pesce.", "minuti": 10 }
+    ]
+  },
+  "Pasta al forno": {
+    "tempo": "50 min",
+    "porzioni": 6,
+    "ingredienti": [
+      { "nome": "Pasta corta", "quantita": "400 g" },
+      { "nome": "Passata di pomodoro", "quantita": "500 g" },
+      { "nome": "Mozzarella", "quantita": "250 g" },
+      { "nome": "Parmigiano grattugiato", "quantita": "80 g" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" }
+    ],
+    "passi": [
+      { "testo": "Cuoci la pasta molto al dente in acqua salata.", "minuti": 7 },
+      { "testo": "Condisci con la passata e metti in una teglia." },
+      { "testo": "Copri con mozzarella a dadini e parmigiano." },
+      { "testo": "Cuoci in forno a 200 gradi finché dorata.", "minuti": 20 }
+    ]
+  },
+  "Pizza margherita fatta in casa": {
+    "tempo": "1 ora 30 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Farina", "quantita": "500 g" },
+      { "nome": "Lievito di birra", "quantita": "7 g" },
+      { "nome": "Acqua", "quantita": "300 ml" },
+      { "nome": "Passata di pomodoro", "quantita": "200 g" },
+      { "nome": "Mozzarella", "quantita": "250 g" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Impasta farina, acqua, lievito e sale fino a ottenere un impasto liscio." },
+      { "testo": "Lascia lievitare l'impasto in un luogo tiepido.", "minuti": 60 },
+      { "testo": "Stendi l'impasto sulla teglia e condisci con passata." },
+      { "testo": "Cuoci in forno molto caldo (240 gradi).", "minuti": 12 },
+      { "testo": "Aggiungi la mozzarella e cuoci altri minuti finché filante.", "minuti": 3 }
+    ]
+  },
+  "Cotoletta di pollo con patatine": {
+    "tempo": "30 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Petto di pollo", "quantita": "4 fette" },
+      { "nome": "Pangrattato", "quantita": "150 g" },
+      { "nome": "Uova", "quantita": "2" },
+      { "nome": "Patatine surgelate", "quantita": "500 g" },
+      { "nome": "Olio di semi", "quantita": "q.b." },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Passa il pollo nell'uovo sbattuto e poi nel pangrattato." },
+      { "testo": "Cuoci le cotolette in padella con un po' d'olio.", "minuti": 10 },
+      { "testo": "Cuoci le patatine in forno seguendo le indicazioni della confezione.", "minuti": 20 },
+      { "testo": "Servi cotolette e patatine con un pizzico di sale." }
+    ]
+  },
+  "Lasagne alla bolognese": {
+    "tempo": "1 ora 15 min",
+    "porzioni": 6,
+    "ingredienti": [
+      { "nome": "Sfoglie di lasagna", "quantita": "500 g" },
+      { "nome": "Ragù di carne", "quantita": "600 g" },
+      { "nome": "Besciamella", "quantita": "500 ml" },
+      { "nome": "Parmigiano grattugiato", "quantita": "100 g" }
+    ],
+    "passi": [
+      { "testo": "Scalda il ragù e la besciamella." },
+      { "testo": "Alterna in una teglia sfoglie, ragù, besciamella e parmigiano a strati." },
+      { "testo": "Finisci con besciamella e parmigiano in superficie." },
+      { "testo": "Cuoci in forno a 190 gradi finché dorata.", "minuti": 35 }
+    ]
+  },
+  "Pancake con miele": {
+    "tempo": "20 min",
+    "porzioni": 3,
+    "ingredienti": [
+      { "nome": "Farina", "quantita": "200 g" },
+      { "nome": "Latte", "quantita": "250 ml" },
+      { "nome": "Uova", "quantita": "2" },
+      { "nome": "Lievito per dolci", "quantita": "1 cucchiaino" },
+      { "nome": "Miele", "quantita": "q.b." },
+      { "nome": "Burro", "quantita": "una noce" }
+    ],
+    "passi": [
+      { "testo": "Mescola farina, latte, uova e lievito fino a ottenere una pastella liscia." },
+      { "testo": "Scalda una noce di burro in padella antiaderente." },
+      { "testo": "Versa un mestolo di pastella e cuoci finché si forma bolle, poi gira.", "minuti": 2 },
+      { "testo": "Impila i pancake e servi con miele." }
+    ]
+  },
+  "Arrosto di vitello con carote": {
+    "tempo": "1 ora 30 min",
+    "porzioni": 6,
+    "ingredienti": [
+      { "nome": "Arrosto di vitello", "quantita": "1 kg" },
+      { "nome": "Carote", "quantita": "4" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Rosmarino", "quantita": "1 rametto" },
+      { "nome": "Sale", "quantita": "q.b." },
+      { "nome": "Vino bianco", "quantita": "100 ml" }
+    ],
+    "passi": [
+      { "testo": "Rosola l'arrosto in una pentola con olio su tutti i lati.", "minuti": 10 },
+      { "testo": "Bagna con il vino bianco e lascia evaporare." },
+      { "testo": "Aggiungi le carote a tocchetti, sale e rosmarino, copri e cuoci a fuoco lento.", "minuti": 60 },
+      { "testo": "Affetta l'arrosto e servi con le carote e il fondo di cottura." }
+    ]
+  },
+  "Passato di verdure con crostini": {
+    "tempo": "35 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Patate", "quantita": "2" },
+      { "nome": "Carote", "quantita": "2" },
+      { "nome": "Zucchine", "quantita": "2" },
+      { "nome": "Pane", "quantita": "4 fette" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Taglia le verdure a pezzi e cuocile in acqua salata finché morbide.", "minuti": 25 },
+      { "testo": "Frulla tutto fino a ottenere una crema liscia." },
+      { "testo": "Tosta il pane a tocchetti in padella con un filo d'olio per i crostini.", "minuti": 5 },
+      { "testo": "Servi il passato caldo con i crostini sopra." }
+    ]
+  },
+  "Frullato di banana e latte": {
+    "tempo": "5 min",
+    "porzioni": 2,
+    "ingredienti": [
+      { "nome": "Banane", "quantita": "2" },
+      { "nome": "Latte", "quantita": "300 ml" },
+      { "nome": "Miele", "quantita": "1 cucchiaino" }
+    ],
+    "passi": [
+      { "testo": "Taglia le banane a pezzi." },
+      { "testo": "Frulla banane, latte e miele fino a ottenere una crema liscia." },
+      { "testo": "Versa in due bicchieri e servi subito." }
+    ]
+  },
+  "Insalata di riso": {
+    "tempo": "25 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Riso", "quantita": "320 g" },
+      { "nome": "Pomodori", "quantita": "2" },
+      { "nome": "Mozzarella", "quantita": "150 g" },
+      { "nome": "Prosciutto cotto", "quantita": "100 g" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Cuoci il riso in acqua salata e scola, poi raffredda sotto l'acqua fredda.", "minuti": 15 },
+      { "testo": "Taglia pomodori, mozzarella e prosciutto a dadini." },
+      { "testo": "Mescola tutto con il riso e condisci con olio e sale." },
+      { "testo": "Lascia riposare in frigo prima di servire." }
+    ]
+  },
+  "Polpette al sugo con pane": {
+    "tempo": "40 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Macinato di manzo", "quantita": "500 g" },
+      { "nome": "Uova", "quantita": "1" },
+      { "nome": "Pangrattato", "quantita": "60 g" },
+      { "nome": "Parmigiano grattugiato", "quantita": "40 g" },
+      { "nome": "Passata di pomodoro", "quantita": "400 g" },
+      { "nome": "Pane", "quantita": "4 fette" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Mescola il macinato con uovo, pangrattato, parmigiano e sale." },
+      { "testo": "Forma delle polpette con le mani." },
+      { "testo": "Rosola le polpette in padella con un filo d'olio.", "minuti": 8 },
+      { "testo": "Aggiungi la passata e cuoci a fuoco basso.", "minuti": 15 },
+      { "testo": "Servi le polpette con il sugo e il pane." }
+    ]
+  },
+  "Toast al prosciutto e formaggio": {
+    "tempo": "10 min",
+    "porzioni": 2,
+    "ingredienti": [
+      { "nome": "Pane", "quantita": "4 fette" },
+      { "nome": "Prosciutto cotto", "quantita": "4 fette" },
+      { "nome": "Mozzarella", "quantita": "100 g" },
+      { "nome": "Burro", "quantita": "una noce" }
+    ],
+    "passi": [
+      { "testo": "Farcisci due fette di pane con prosciutto e mozzarella, poi chiudi con le altre due." },
+      { "testo": "Scalda una noce di burro in padella." },
+      { "testo": "Cuoci i toast finché dorati su entrambi i lati.", "minuti": 6 }
+    ]
+  },
+  "Spiedini di pollo e verdure": {
+    "tempo": "30 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Petto di pollo", "quantita": "500 g" },
+      { "nome": "Zucchine", "quantita": "2" },
+      { "nome": "Peperoni", "quantita": "1" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Taglia pollo e verdure a cubetti." },
+      { "testo": "Infila pollo e verdure alternati sugli spiedini." },
+      { "testo": "Condisci con olio e sale e cuoci in padella o in forno girando spesso.", "minuti": 18 },
+      { "testo": "Servi caldo." }
+    ]
+  },
+  "Involtini di prosciutto e formaggio": {
+    "tempo": "15 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Prosciutto cotto", "quantita": "8 fette" },
+      { "nome": "Mozzarella", "quantita": "200 g" },
+      { "nome": "Insalata", "quantita": "qualche foglia" }
+    ],
+    "passi": [
+      { "testo": "Taglia la mozzarella a bastoncini." },
+      { "testo": "Avvolgi ogni bastoncino con una fetta di prosciutto." },
+      { "testo": "Disponi gli involtini su un piatto con l'insalata e servi." }
+    ]
+  },
+  "Vellutata di zucca": {
+    "tempo": "35 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Zucca", "quantita": "800 g" },
+      { "nome": "Cipolle", "quantita": "1/2" },
+      { "nome": "Olio d'oliva", "quantita": "2 cucchiai" },
+      { "nome": "Sale", "quantita": "q.b." },
+      { "nome": "Parmigiano grattugiato", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Taglia la zucca a cubetti e la cipolla fine." },
+      { "testo": "Rosola la cipolla nell'olio, poi aggiungi la zucca." },
+      { "testo": "Copri con acqua e cuoci finché la zucca è morbida.", "minuti": 25 },
+      { "testo": "Frulla fino a ottenere una crema liscia e servi con parmigiano." }
+    ]
+  },
+  "Scaloppine al limone con piselli": {
+    "tempo": "25 min",
+    "porzioni": 4,
+    "ingredienti": [
+      { "nome": "Scaloppine di vitello", "quantita": "8" },
+      { "nome": "Farina", "quantita": "2 cucchiai" },
+      { "nome": "Limoni", "quantita": "1" },
+      { "nome": "Piselli", "quantita": "250 g" },
+      { "nome": "Burro", "quantita": "30 g" },
+      { "nome": "Sale", "quantita": "q.b." }
+    ],
+    "passi": [
+      { "testo": "Infarina leggermente le scaloppine." },
+      { "testo": "Rosola le scaloppine nel burro su entrambi i lati.", "minuti": 6 },
+      { "testo": "Aggiungi il succo di limone e lascia insaporire.", "minuti": 3 },
+      { "testo": "Scalda i piselli a parte e servi insieme alle scaloppine." }
+    ]
+  }
+}
