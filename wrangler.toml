@@ -1,0 +1,7 @@
+name = "kitchen-wall"
+pages_build_output_dir = "."
+compatibility_date = "2026-10-25"
+
+[[kv_namespaces]]
+binding = "KW"
+id = "0fac19c1285e480cbdfe08a24e4cc342"

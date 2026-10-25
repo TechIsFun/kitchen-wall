@@ -1,4 +1,4 @@
-var CACHE_NOME = "kitchen-wall-v3";
+var CACHE_NOME = "kitchen-wall-v4";
 var FILE_DA_CACHE = [
   "./",
   "./index.html",
@@ -36,6 +36,11 @@ self.addEventListener("activate", function (event) {
 });
 
 self.addEventListener("fetch", function (event) {
+  var url = new URL(event.request.url);
+  if (url.pathname.indexOf("/api/") !== -1) {
+    event.respondWith(fetch(event.request));
+    return;
+  }
   event.respondWith(
     caches.match(event.request).then(function (risposta) {
       if (risposta) return risposta;

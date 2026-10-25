@@ -20,6 +20,10 @@
   var shoppingData = null;
   var oggiKey = GIORNI[new Date().getDay()];
 
+  var API_SPESA = "api/shopping";
+  var kwVersion = 0;
+  var kwSyncing = false;
+
   var timerInterval = null;
   var timerSeconds = 0;
   var timerRunning = false;
@@ -209,11 +213,30 @@
     }
   }
 
-  /* ---------- LISTA DELLA SPESA ----------
-     "listaSpesa" in localStorage è l'elenco "da comprare":
-     un array di { nome, emoji }. Un alimento del catalogo è
-     "da comprare" quando il suo nome è presente in questo array.
-     Toccare una voce in "Da comprare" la rimuove (= comprata). */
+  /* ---------- LISTA DELLA SPESA (sincronizzata via API) ----------
+     "listaSpesa" in localStorage è la copia cache dell'elenco server:
+     un array di { id, nome, emoji, origine, aggiunto_il, comprato }.
+     Le voci con comprato=false sono "da comprare". Le modifiche sono
+     applicate subito in locale (optimistic) e accodate in "kwPendingOps"
+     se offline; vengono rigiocate quando torna la rete. */
+
+  function getHouseCode() {
+    try {
+      return localStorage.getItem("kwHouseCode") || "";
+    } catch (e) {
+      return "";
+    }
+  }
+
+  function setHouseCode(code) {
+    try {
+      localStorage.setItem("kwHouseCode", code);
+    } catch (e) { /* ignora */ }
+  }
+
+  function authHeaders() {
+    return { "Authorization": "Bearer " + getHouseCode(), "Content-Type": "application/json" };
+  }
 
   function caricaSpesa() {
     try {
@@ -224,23 +247,168 @@
     }
   }
 
-  function salvaSpesa(lista) {
+  function salvaSpesaCache(lista, version) {
     try {
       localStorage.setItem("listaSpesa", JSON.stringify(lista));
+      if (typeof version === "number") {
+        kwVersion = version;
+        localStorage.setItem("kwVersion", String(version));
+      }
     } catch (e) {
-      console.error("Impossibile salvare la lista spesa:", e);
+      console.error("Impossibile salvare la cache della lista spesa:", e);
     }
+  }
+
+  function caricaCoda() {
+    try {
+      var raw = localStorage.getItem("kwPendingOps");
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function salvaCoda(coda) {
+    try {
+      localStorage.setItem("kwPendingOps", JSON.stringify(coda));
+    } catch (e) { /* ignora */ }
+  }
+
+  function accodaOperazione(op) {
+    var coda = caricaCoda();
+    coda.push(op);
+    salvaCoda(coda);
   }
 
   function trovaIndiceSpesa(lista, nome) {
     for (var i = 0; i < lista.length; i++) {
-      if (lista[i].nome === nome) return i;
+      if (lista[i].nome === nome && !lista[i].comprato) return i;
     }
     return -1;
   }
 
+  function trovaIndicePerId(lista, id) {
+    for (var i = 0; i < lista.length; i++) {
+      if (lista[i].id === id) return i;
+    }
+    return -1;
+  }
+
+  function generaIdLocale() {
+    return "l" + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+  }
+
+  function mostraOverlayCodice(messaggioErrore) {
+    var overlay = qs("#codice-overlay");
+    if (!overlay) return;
+    overlay.classList.add("visible");
+    var errore = qs("#codice-errore");
+    if (messaggioErrore) {
+      errore.textContent = messaggioErrore;
+      errore.style.display = "block";
+    } else {
+      errore.style.display = "none";
+    }
+  }
+
+  function nascondiOverlayCodice() {
+    var overlay = qs("#codice-overlay");
+    if (overlay) overlay.classList.remove("visible");
+  }
+
+  function verificaCodiceCasa() {
+    var input = qs("#input-codice-casa");
+    var codice = (input.value || "").trim();
+    if (!codice) return;
+    fetch(API_SPESA, { headers: { "Authorization": "Bearer " + codice } })
+      .then(function (r) {
+        if (r.status === 401) {
+          mostraOverlayCodice("Codice non valido, riprova.");
+          return null;
+        }
+        return r.json();
+      })
+      .then(function (data) {
+        if (!data) return;
+        setHouseCode(codice);
+        nascondiOverlayCodice();
+        salvaSpesaCache(data.items || [], data.version || 0);
+        renderSpesa();
+      })
+      .catch(function () {
+        mostraOverlayCodice("Impossibile contattare il server, controlla la connessione.");
+      });
+  }
+
+  function sincronizzaSpesa() {
+    if (!getHouseCode()) {
+      mostraOverlayCodice();
+      return;
+    }
+    if (kwSyncing) return;
+    kwSyncing = true;
+    rigiocaCoda().then(function () {
+      return fetch(API_SPESA, { headers: authHeaders() });
+    }).then(function (r) {
+      if (r.status === 401) {
+        mostraOverlayCodice("Codice non valido, riprova.");
+        kwSyncing = false;
+        return null;
+      }
+      return r.json();
+    }).then(function (data) {
+      kwSyncing = false;
+      if (!data) return;
+      salvaSpesaCache(data.items || [], data.version || 0);
+      renderSpesa();
+    }).catch(function () {
+      kwSyncing = false;
+      /* offline: la cache locale resta valida */
+    });
+  }
+
+  function rigiocaCoda() {
+    var coda = caricaCoda();
+    if (!coda.length) return Promise.resolve();
+
+    function eseguiProssima() {
+      var coda2 = caricaCoda();
+      if (!coda2.length) return Promise.resolve();
+      var op = coda2[0];
+      var req;
+      if (op.type === "add") {
+        req = fetch(API_SPESA, { method: "POST", headers: authHeaders(), body: JSON.stringify(op.payload) });
+      } else if (op.type === "patch") {
+        req = fetch(API_SPESA, { method: "PATCH", headers: authHeaders(), body: JSON.stringify(op.payload) });
+      } else {
+        return Promise.resolve();
+      }
+      return req.then(function (r) {
+        if (r.status === 401) {
+          throw new Error("unauthorized");
+        }
+        var rimanenti = caricaCoda();
+        rimanenti.shift();
+        salvaCoda(rimanenti);
+        return eseguiProssima();
+      });
+    }
+
+    return eseguiProssima().catch(function (err) {
+      if (err && err.message === "unauthorized") {
+        mostraOverlayCodice("Codice non valido, riprova.");
+      }
+      /* altri errori di rete: riprova al prossimo sync */
+    });
+  }
+
   function renderSpesa() {
-    var lista = caricaSpesa();
+    var listaCompleta = caricaSpesa();
+    var lista = [];
+    for (var k = 0; k < listaCompleta.length; k++) {
+      if (!listaCompleta[k].comprato) lista.push(listaCompleta[k]);
+    }
+
     var ul = qs("#lista-spesa");
     ul.innerHTML = "";
 
@@ -251,7 +419,7 @@
     for (var i = 0; i < lista.length; i++) {
       var voce = lista[i];
       var li = document.createElement("li");
-      li.setAttribute("data-index", String(i));
+      li.setAttribute("data-id", voce.id);
 
       var emoji = document.createElement("span");
       emoji.className = "articolo-emoji";
@@ -269,8 +437,8 @@
       li.appendChild(comprato);
 
       li.addEventListener("click", function () {
-        var idx = parseInt(this.getAttribute("data-index"), 10);
-        rimuoviDaSpesa(idx);
+        var id = this.getAttribute("data-id");
+        rimuoviDaSpesa(id);
       });
 
       ul.appendChild(li);
@@ -279,57 +447,77 @@
     renderCatalogoSpesa();
   }
 
-  function rimuoviDaSpesa(idx) {
+  function rimuoviDaSpesa(id) {
     var lista = caricaSpesa();
-    lista.splice(idx, 1);
-    salvaSpesa(lista);
+    var idx = trovaIndicePerId(lista, id);
+    if (idx !== -1) {
+      lista[idx].comprato = true;
+      salvaSpesaCache(lista);
+    }
     renderSpesa();
+    accodaOperazione({ type: "patch", payload: { id: id, action: "toggle", comprato: true } });
+    sincronizzaSpesa();
   }
 
-  function aggiungiArticolo(nome) {
+  function aggiungiVoceSpesa(nome, emoji, origine) {
     nome = (nome || "").trim();
     if (!nome) return;
     var lista = caricaSpesa();
     if (trovaIndiceSpesa(lista, nome) !== -1) return;
-    lista.push({ nome: nome, emoji: "📝" });
-    salvaSpesa(lista);
+    var id = generaIdLocale();
+    lista.push({
+      id: id,
+      nome: nome,
+      emoji: emoji || "📝",
+      origine: origine || "manuale",
+      aggiunto_il: new Date().toISOString(),
+      comprato: false
+    });
+    salvaSpesaCache(lista);
     renderSpesa();
+    accodaOperazione({ type: "add", payload: { id: id, nome: nome, emoji: emoji || "📝", origine: origine || "manuale" } });
+    sincronizzaSpesa();
+  }
+
+  function aggiungiArticolo(nome) {
+    aggiungiVoceSpesa(nome, "📝", "manuale");
   }
 
   function toggleAlimentoCatalogo(nome, emoji) {
     var lista = caricaSpesa();
     var idx = trovaIndiceSpesa(lista, nome);
     if (idx === -1) {
-      lista.push({ nome: nome, emoji: emoji });
+      aggiungiVoceSpesa(nome, emoji, "catalogo");
     } else {
-      lista.splice(idx, 1);
+      var id = lista[idx].id;
+      rimuoviDaSpesa(id);
     }
-    salvaSpesa(lista);
-    renderSpesa();
     renderSuggeritiPiano();
   }
 
   function svuotaSpesa() {
-    if (confirm("Vuoi svuotare tutta la lista della spesa?")) {
-      salvaSpesa([]);
-      renderSpesa();
+    if (!confirm("Vuoi svuotare tutta la lista della spesa?")) return;
+    var lista = caricaSpesa();
+    for (var i = 0; i < lista.length; i++) {
+      if (!lista[i].comprato) {
+        lista[i].comprato = true;
+        accodaOperazione({ type: "patch", payload: { id: lista[i].id, action: "toggle", comprato: true } });
+      }
     }
+    salvaSpesaCache(lista);
+    renderSpesa();
+    sincronizzaSpesa();
   }
 
   function aggiungiIngredientiAllaSpesa(nomePiatto) {
     var ricetta = recipesData ? recipesData[nomePiatto] : null;
     if (!ricetta) return;
-    var lista = caricaSpesa();
     var ingredienti = ricetta.ingredienti || [];
     for (var i = 0; i < ingredienti.length; i++) {
       var ing = ingredienti[i];
       var nomeCompleto = ing.nome + " (" + ing.quantita + ")";
-      if (trovaIndiceSpesa(lista, nomeCompleto) === -1) {
-        lista.push({ nome: nomeCompleto, emoji: "🍳" });
-      }
+      aggiungiVoceSpesa(nomeCompleto, "🍳", "ricetta");
     }
-    salvaSpesa(lista);
-    renderSpesa();
     alert("Ingredienti aggiunti alla lista della spesa! 🛒");
   }
 
@@ -517,6 +705,11 @@
 
     qs("#btn-svuota-spesa").addEventListener("click", svuotaSpesa);
 
+    qs("#btn-conferma-codice").addEventListener("click", verificaCodiceCasa);
+    qs("#input-codice-casa").addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.keyCode === 13) verificaCodiceCasa();
+    });
+
     qs("#timer-avvia").addEventListener("click", timerAvviaConta);
     qs("#timer-pausa").addEventListener("click", timerPausa);
     qs("#timer-chiudi").addEventListener("click", timerChiudi);
@@ -541,10 +734,29 @@
     }
   }
 
+  function initSyncSpesa() {
+    if (!getHouseCode()) {
+      mostraOverlayCodice();
+    } else {
+      sincronizzaSpesa();
+    }
+
+    window.addEventListener("online", function () {
+      sincronizzaSpesa();
+    });
+
+    setInterval(function () {
+      if (document.visibilityState === "visible" || typeof document.visibilityState === "undefined") {
+        sincronizzaSpesa();
+      }
+    }, 30000);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initEventi();
     caricaDati();
     initServiceWorker();
+    initSyncSpesa();
     setTimeout(function () {
       document.body.className += " app-pronto";
     }, 50);
