@@ -1,4 +1,270 @@
 {
   "generated_at": "2026-10-25",
-  "items": []
+  "items": [
+    {
+      "nome": "Acqua",
+      "emoji": "💧",
+      "quantita": "300 ml"
+    },
+    {
+      "nome": "Aglio",
+      "emoji": "🧄",
+      "quantita": "1 spicchio"
+    },
+    {
+      "nome": "Arrosto di vitello",
+      "emoji": "🥩",
+      "quantita": "1 kg"
+    },
+    {
+      "nome": "Banane",
+      "emoji": "🍌",
+      "quantita": "2"
+    },
+    {
+      "nome": "Basilico fresco",
+      "emoji": "🛒",
+      "quantita": "qualche foglia"
+    },
+    {
+      "nome": "Besciamella",
+      "emoji": "🥛",
+      "quantita": "500 ml"
+    },
+    {
+      "nome": "Biscotti secchi",
+      "emoji": "🍪",
+      "quantita": "8 pezzi"
+    },
+    {
+      "nome": "Burro",
+      "emoji": "🧈",
+      "quantita": "30 g + una noce"
+    },
+    {
+      "nome": "Carote",
+      "emoji": "🥕",
+      "quantita": "2 + 4"
+    },
+    {
+      "nome": "Cereali",
+      "emoji": "🥣",
+      "quantita": "60 g"
+    },
+    {
+      "nome": "Cipolla",
+      "emoji": "🛒",
+      "quantita": "1/2"
+    },
+    {
+      "nome": "Cipolle",
+      "emoji": "🧅",
+      "quantita": "1/2"
+    },
+    {
+      "nome": "Fagioli in scatola",
+      "emoji": "🥫",
+      "quantita": "1 lattina"
+    },
+    {
+      "nome": "Farina",
+      "emoji": "🌾",
+      "quantita": "2 cucchiai + 200 g + 500 g"
+    },
+    {
+      "nome": "Filetti di pesce bianco",
+      "emoji": "🐟",
+      "quantita": "4"
+    },
+    {
+      "nome": "Hamburger di manzo",
+      "emoji": "🍔",
+      "quantita": "4"
+    },
+    {
+      "nome": "Insalata",
+      "emoji": "🥬",
+      "quantita": "1 cespo + qualche foglia"
+    },
+    {
+      "nome": "Latte",
+      "emoji": "🥛",
+      "quantita": "100 ml + 250 ml + 300 ml + 400 ml"
+    },
+    {
+      "nome": "Lievito di birra",
+      "emoji": "🍞",
+      "quantita": "7 g"
+    },
+    {
+      "nome": "Lievito per dolci",
+      "emoji": "🧁",
+      "quantita": "1 cucchiaino"
+    },
+    {
+      "nome": "Limone",
+      "emoji": "🛒",
+      "quantita": "1"
+    },
+    {
+      "nome": "Limoni",
+      "emoji": "🍋",
+      "quantita": "1"
+    },
+    {
+      "nome": "Macinato di manzo",
+      "emoji": "🥩",
+      "quantita": "500 g"
+    },
+    {
+      "nome": "Marmellata",
+      "emoji": "🍯",
+      "quantita": "4 cucchiai"
+    },
+    {
+      "nome": "Miele",
+      "emoji": "🍯",
+      "quantita": "1 cucchiaino + 1 cucchiaio + q.b."
+    },
+    {
+      "nome": "Mozzarella",
+      "emoji": "🧀",
+      "quantita": "100 g + 150 g + 200 g + 250 g"
+    },
+    {
+      "nome": "Olio d'oliva",
+      "emoji": "🫒",
+      "quantita": "2 cucchiai + 3 cucchiai"
+    },
+    {
+      "nome": "Olio di semi",
+      "emoji": "🫙",
+      "quantita": "q.b."
+    },
+    {
+      "nome": "Pane",
+      "emoji": "🍞",
+      "quantita": "4 fette"
+    },
+    {
+      "nome": "Pangrattato",
+      "emoji": "🍞",
+      "quantita": "150 g + 60 g"
+    },
+    {
+      "nome": "Parmigiano grattugiato",
+      "emoji": "🧀",
+      "quantita": "100 g + 2 cucchiai + 40 g + 80 g + q.b."
+    },
+    {
+      "nome": "Passata di pomodoro",
+      "emoji": "🥫",
+      "quantita": "200 g + 400 g + 500 g"
+    },
+    {
+      "nome": "Pasta",
+      "emoji": "🍝",
+      "quantita": "320 g"
+    },
+    {
+      "nome": "Pasta corta",
+      "emoji": "🍝",
+      "quantita": "400 g"
+    },
+    {
+      "nome": "Patate",
+      "emoji": "🥔",
+      "quantita": "2 + 600 g"
+    },
+    {
+      "nome": "Patatine surgelate",
+      "emoji": "🍟",
+      "quantita": "500 g"
+    },
+    {
+      "nome": "Peperoni",
+      "emoji": "🫑",
+      "quantita": "1"
+    },
+    {
+      "nome": "Pesto alla genovese",
+      "emoji": "🥫",
+      "quantita": "150 g"
+    },
+    {
+      "nome": "Petto di pollo",
+      "emoji": "🍗",
+      "quantita": "4 fette + 500 g"
+    },
+    {
+      "nome": "Piselli",
+      "emoji": "🟢",
+      "quantita": "250 g + 300 g"
+    },
+    {
+      "nome": "Pomodori",
+      "emoji": "🍅",
+      "quantita": "2"
+    },
+    {
+      "nome": "Prosciutto cotto",
+      "emoji": "🍖",
+      "quantita": "100 g + 4 fette + 8 fette"
+    },
+    {
+      "nome": "Ragù di carne",
+      "emoji": "🍖",
+      "quantita": "600 g"
+    },
+    {
+      "nome": "Riso",
+      "emoji": "🍚",
+      "quantita": "320 g"
+    },
+    {
+      "nome": "Rosmarino",
+      "emoji": "🛒",
+      "quantita": "1 rametto"
+    },
+    {
+      "nome": "Sale",
+      "emoji": "🧂",
+      "quantita": "q.b."
+    },
+    {
+      "nome": "Scaloppine di vitello",
+      "emoji": "🥩",
+      "quantita": "8"
+    },
+    {
+      "nome": "Sfoglie di lasagna",
+      "emoji": "🍝",
+      "quantita": "500 g"
+    },
+    {
+      "nome": "Uova",
+      "emoji": "🥚",
+      "quantita": "1 + 2 + 5"
+    },
+    {
+      "nome": "Vino bianco",
+      "emoji": "🍷",
+      "quantita": "100 ml"
+    },
+    {
+      "nome": "Yogurt bianco",
+      "emoji": "🛒",
+      "quantita": "250 g"
+    },
+    {
+      "nome": "Zucca",
+      "emoji": "🎃",
+      "quantita": "800 g"
+    },
+    {
+      "nome": "Zucchine",
+      "emoji": "🥒",
+      "quantita": "2 + 3"
+    }
+  ]
 }
